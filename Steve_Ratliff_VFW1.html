@@ -135,7 +135,72 @@
         
         
             
+        <!-- Need A Form Tag, Can Use More Than One Form-->
         
+        <form action="#" method="post">
+            <!-- INfo Goes IN Here-->
+            <fieldset>
+                <legend> iNformation</legend>
+                    <ul> <!-- Put questions In List Optional-->
+                        <li><label for="fname">First Name:</label><input type="text" id="Fname" /></li>
+                        <li><label for="pword">Password:</label><input type="password" id="pword"/></li>
+                        <li><label for="cpword">Confirm Password ( Disabled):</label><input type="password" id= "pword" /></li>
+                        <li><label for="email">Email:</label><input type="email"id="email" placeholder="example@email.com" /></li>
+                        <li><label for="url">Fav Website:</label><input type="url" id="url"placeholder="www.apple.com" /></li>
+                     </ul>
+            </fieldset>
+            <fieldset
+                <legend>Question</legend>
+                <ul>
+                    <li>Check your favorites:<!-- pick more than one-->
+                        <ul>
+                            <li><input type="checkbox"checked value="Coke" id="pepsi" /><label for="coke">Coke</label></li>
+                            <li><input type="checkbox"checked value="Pepsi" id="pepsi" /><label for="pepsi">Pepsi</label></li>
+                            <li><input type="checkbox"checked value="Sprite" id="sprite" /><label for="sprite">Sprite</label></li>
+                            <li><input type="checkbox"checked value="RootBeer" id="rootbeer" /><label for="rootbeer">RootBeer"</label></li>
+                        </ul>
+                    <li>Are you Male Or Female?:<!-- pick only one-->
+                        <ul>
+                            <li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male"</label></li>
+                            <li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female"</label></li>
+                            <li><input type="radio" checked value="Unknown" id="unknown" name="sex" /><label for="unknown"</label></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <label for="travel">Preferrod Method of Travel</label>
+                        <select id="travel">
+                            <optgroup label="Self Powerd Modes">
+                                <option value="walk">Walk</option>
+                                <option value="bike">bike</option>
+                            </optgroup>
+                            <optgroup label="Machine Powered">
+                                <option value="Car">Car</option>
+                                <option value="Bus">Bus</option>
+                                <option value="Train">Train</option>
+                                <option value="Plane">Plane<option>
+                            </optgroup>
+                        </select>
+                    <li>
+                        <li><label for="comments"> Whats your Favorite vacation?:</label><textarea id"comments"></textarea></li>
+                        <li><label type="hidden" value="true" /></li><!-- Data that Tracks Hidden Info -->
+                        
+                </ul>
+            </fieldset>
+            <input type="submit" value="Send It Now!" />
+        </form>
+    </body>
+</html>
+
+            
+                                
+                                
+                            
+            
+            
+            
+            
+            
+        </form>
     
         
         
