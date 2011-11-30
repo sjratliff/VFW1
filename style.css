@@ -5,29 +5,71 @@
  Term: 12-11
 */
 
-body{
-	background:#339900;
-}
+	body{
+		background-color:#cccccc;
 
-h1{
-   
-   border:2px solid #000000;
-   padding:20px;
-   background:#33cc33;
-   font-family: "Times New Roman", Times, sans-serif;
-   font-size:45px;
-   font-weight:bold;
-   line-height:15px;
-   text-align:center; 
-   
-}
-fieldset{
-	border:2px double #000;
-	background:#ccffcc;
-	font-family: "Times New Roman", Times, sans-serif;
-	font-size:17px;
-	font-weight:normal;
-	alignment-adjust:before-edge;
+		}
 	
-	
+	h1{
+	   
+		border:2px outset #000000;
+		padding:20px;
+		background:#33cc33;
+		font-family: "Times New Roman", Times, sans-serif;
+		font-size:45px;
+		font-weight:bold;
+		line-height:15px;
+		text-align:center;
+	   
+		}
+	p{
+		font-size:20px;
+		font-family: "Times New Roman", Times, sans-serif;
+		text-align:center;
+		text-decoration:none;
+		text-transform:none;
+		padding:10px;
+		
+		
+		
+		}
+	h2{
+		font-size:25px;
+		font-family: "Times New Roman", Times, sans-serif;
+		text-align:center;
+		border:groove;
+		
+		}
+	label{
+		font-size:17px;
+		color:blue;
+		
+		
 	}
+	select{
+		font-size:16px;
+		font-family: "Times New Roman", Times, sans-serif;
+		text-transform:capitalize;
+		
+		
+		
+	}
+	footer{
+		font-size:17px;
+		font-family: "Times New Roman", Times, sans-serif;
+		text-align:center;
+		color:red;
+		text-transform:capitalize;
+		
+		}
+	fieldset{
+		border:2px double #000;
+		background:#ccffcc;
+		background-position: center;
+		font-family: "Times New Roman", Times, sans-serif;
+		font-size:17px;
+		font-weight:normal;
+	
+		
+		
+		
