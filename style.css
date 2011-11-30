@@ -5,13 +5,29 @@
  Term: 12-11
 */
 
-
+body{
+	background:#339900;
+}
 
 h1{
-   margin:20px;
-   border:1px solid #000000;
-   padding:10px;
-   background:#33cc33;
    
-	
+   border:2px solid #000000;
+   padding:20px;
+   background:#33cc33;
+   font-family: "Times New Roman", Times, sans-serif;
+   font-size:45px;
+   font-weight:bold;
+   line-height:15px;
+   text-align:center; 
+   
 }
+fieldset{
+	border:2px double #000;
+	background:#ccffcc;
+	font-family: "Times New Roman", Times, sans-serif;
+	font-size:17px;
+	font-weight:normal;
+	alignment-adjust:before-edge;
+	
+	
+	}
