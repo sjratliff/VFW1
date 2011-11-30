@@ -61,14 +61,22 @@
 		color:red;
 		text-transform:capitalize;
 		
-		}
+	}
+	input{
+		font-size:15px;
+		font-family: "Times New Roman", Times, sans-serif;
+		color:red;
+		text-transform:none;
+		
+	}
 	fieldset{
-		border:2px double #000;
+		border:thick double #000;
 		background:#ccffcc;
 		background-position: center;
 		font-family: "Times New Roman", Times, sans-serif;
 		font-size:17px;
 		font-weight:normal;
+		
 	
 		
 		
