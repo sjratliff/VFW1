@@ -49,16 +49,18 @@ window.addEventListener("DOMcontentLoaded", function(){
         var id              =Math.floor(Math.random()*100000001);
         //gather up all form field valus and store in object.
         //Object properties contain array with the form label and input value.
+        getSelectedRadio();
+        getCheckboxValue();
         var item            ={};
             item.group      =["Group:", $('groups').value];
-            item.fname      =["First Name:", $('fname').value];
-            item.lname      =["last Name:", $('lname').value];
+            item.tname      =["Team Name:", $('tname').value];
+            item.pword      =["Password:", $('pword').value];
+            item.cpword     =["Confirm Password:", $('cpword').value];
             item.emal       =["Email:", $('email').value];
             item.sex        =["Sex:", sexValue];
-            item.favorite   =["Is a Favorite:", favoriteValue];
-            item.iq         =["IQ", $('iq').value];
-            item.date       =["Date", $('date').value];
-            item.notes      =["Notes" , $('notes').value];
+            item.rating     =["rating", $('rating').value];
+            item.date       =["startdate", $('startdate').value];
+            item.comments   =["comments" , $('comments').value];
         //save data into local storage: Use Stringify to convery our object to a string.
         localStorage.setItem(id, JSON.stringify(iten));
         alert("Information Saved !");

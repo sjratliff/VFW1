@@ -23,13 +23,12 @@
                 <span> Fill Info Below </span>
                 <ul id="errors"></ul>
                 <ul id="questions">
-                    <li id="select"><label for="group">Pick Your Fav Team:</label>br /></li>
+                    <li id="select"><label for="group">Pick Your Fav Team:</label><br /></li>
                     <li><label for="tname">Team Name: <label><input type="text" id="tname" /></li>
-                    <li><label for="Are you Male Or Female">Are You Male or Female?</li>
-                            
-                            <ul>
-                                <li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male"</label></li>
-                                <li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female"</label></li>
+                    <li><label for="sex">Sex: </label>
+                            <ul class="checkbox">
+                                <li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male">Male</label></li>
+                                <li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female">Female</label></li>
                             </ul>
                     </li>
                     <li><label for="startdate">Today's Date: </label><input type="date" min="2011-11-01" max="2011-12-31" id="startdate" name='startdate'required aria-required="true" placeholder="2011-11-15">
@@ -38,7 +37,7 @@
                     <li><label for="email">Email: </label><input type="email"id="email" placeholder="johnnyblaze@nfl.com" /></li>
                     <li><label for="rating">How easy was the site to use? :</label>
                         <input type="range" min="0" max="10" value="5" name="rating" type="range">
-                  <li><label for="comments"> Please Type Any Sites That You Use For Research: </label><textarea id="comments"></textarea></li>
+                  <li><label for="comments"> comments: </label><textarea id="comments"></textarea></li>
                 </ul>
             </fieldset>
             <input type="submit" value="submit" />
