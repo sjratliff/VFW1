@@ -27,20 +27,59 @@ window.addEventListener("DOMcontentLoaded", function(){
         }
         selectLi.appendChild(makeSelect);
     }
+    //find value of selcted radio button.
+    function getSelectedRadio(){
+        var radio = document.forms[0].sex;
+        for(var i=0; i<radios.length; i++){
+            if(radios[i].checked){
+            sexValue = radios[i].value;
+            }
+        }
+    }
     
+    function getCheckboxValue(){
+        if($('fav').checked){
+            favoriteValue = $('fav').value;
+        }else{
+            favoriteValue = "No"
+        }
+    }
     
+    function storeData(){
+        var id              =Math.floor(Math.random()*100000001);
+        //gather up all form field valus and store in object.
+        //Object properties contain array with the form label and input value.
+        var item            ={};
+            item.group      =["Group:", $('groups').value];
+            item.fname      =["First Name:", $('fname').value];
+            item.lname      =["last Name:", $('lname').value];
+            item.emal       =["Email:", $('email').value];
+            item.sex        =["Sex:", sexValue];
+            item.favorite   =["Is a Favorite:", favoriteValue];
+            item.iq         =["IQ", $('iq').value];
+            item.date       =["Date", $('date').value];
+            item.notes      =["Notes" , $('notes').value];
+        //save data into local storage: Use Stringify to convery our object to a string.
+        localStorage.setItem(id, JSON.stringify(iten));
+        alert("Information Saved !");
+        
+    }
     
     //Variable defaults
     var contactGroups = ["--Choose A Group--", "Friends", "Work"];
+        sexValue,
+        favoriteValue = "No"
+    ;
     pickTeam();
     
     
+    
     //Set Link & Submit Events
-    var displayLink = $('displayLink');
+   /* var displayLink = $('displayLink');
     displayLink.addEventListener("click", getData);
     var clearLink = $('clear');
     clerLink.addEventListener("click", clearLocal);
     var save = $('submit');
-    save.addEventListener("click", storeData);
+    save.addEventListener("click", storeData);*/
     
 });
