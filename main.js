@@ -123,11 +123,10 @@ window.addEventListener("DOMContentLoaded", function(){
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
-			}
-		makeItemLinks(localStorage.key(i), linksLi); //Create Edit and Delete links for each item in local storage
+		 }
 		
-		}
 	}
+}
 	
     
     
