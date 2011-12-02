@@ -12,15 +12,21 @@ window.addEventListener("DOMContentLoaded", function(){
         return theElement;
     }
     
+    var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
+    var sexValue,
+        favoriteValue = "No"
+    ;
+    var save = $('submit');
+    
     //create select field and populate with options
     function pickTeam(){
         var formTag = document.getElementByTagName("form"),//formTag Is Array of all the tags.
             selectLi = $('select'),
             makeSelect = document.createElement('select');
             makeSelect.setAttribute("id", "groups");
-        for(var i=0,j=Groups.length; i<j; i++){
+        for(var i=0,j=contactGroups.length; i<j; i++){
             var makeOption = document.createElement('option');
-            var optText = Groups[i];
+            var optText = contactGroups[i];
             makeOption.setAttribute("value", optText);
             makeOption.innerHTML = optText;
             makeSelect.appendChild(makeOption);
@@ -39,34 +45,27 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
-    function getCheckboxValue(){
-        if($('fav').checked){
-            favoriteValue = $('fav').value;
-        }else{
-            favoriteValue = "No";
+ 
+    function toggleControls(n){
+        switch(n){
+            case "on":
+               $('contactForm').style.display = "none";
+               $('clear').style.display = "inline";
+               $('displayLink').style.display = "none";
+               $('addNew').style.display = "inline";
+                break;
+            case "off":
+               $('contactForm').style.display = "block";
+               $('clear').style.display = "inline";
+               $('displayLink').style.display = "inline";
+               $('addNew').style.display = "none";
+               $('items').style.display = "none";
+               
+               
+                break;
+            default:
+                return false;
         }
-    }
-        
-        function toggleControls(n){
-            switch(n){
-                case "on":
-                   $('contactForm').style.display = "none";
-                   $('clear').style.display = "inline";
-                   $('displayLink').style.display = "none";
-                   $('addNew').style.display = "inline";
-                    break;
-                case "off":
-                   $('contactForm').style.display = "block";
-                   $('clear').style.display = "inline";
-                   $('displayLink').style.display = "inline";
-                   $('addNew').style.display = "none";
-                   $('items').style.display = "none";
-                   
-                   
-                    break;
-                default:
-                    return false;
-            }
             
         }
     
@@ -75,17 +74,25 @@ window.addEventListener("DOMContentLoaded", function(){
         //gather up all form field valus and store in object.
         //Object properties contain array with the form label and input value.
         getSelectedRadio();
-        getCheckboxValue();
         var item            ={};
             item.group      =["Group:", $('groups').value];
+            alert("1");
             item.tname      =["Team Name:", $('tname').value];
-            item.pword      =["Password:", $('pword').value];
-            item.cpword     =["Confirm Password:", $('cpword').value];
-            item.emal       =["Email:", $('email').value];
+             alert("2");
             item.sex        =["Sex:", sexValue];
-            item.rating     =["rating", $('rating').value];
+             alert("6");
             item.date       =["startdate", $('startdate').value];
+             alert("8");
+            item.pword      =["Password:", $('pword').value];
+             alert("3");
+            item.cpword     =["Confirm Password:", $('cpword').value];
+             alert("4");
+            item.email       =["Email:", $('email').value];
+             alert("5");
+            item.rating     =["rating", $('rating').value];
+             alert("7");
             item.comments   =["comments" , $('comments').value];
+             alert("9");
         //save data into local storage: Use Stringify to convery our object to a string.
         localStorage.setItem(id, JSON.stringify(item));
         alert("Information Saved!");
@@ -101,11 +108,11 @@ window.addEventListener("DOMContentLoaded", function(){
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
         var makeList = document.createElement('ul');
-        makeDiv.appendChild(makelist);
+        makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
         $('items').style.display = "block";
         for(var i=0, len=localStorage.length; i<len;i++){
-            var makei = document.createElement('li');
+            var makeli = document.createElement('li');
             makeList.appendChild(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
@@ -115,9 +122,9 @@ window.addEventListener("DOMContentLoaded", function(){
             makeli.appendChild(makeSubList);
             for(var n in obj){
                 var makesubli = document.createElement('li');
-                makeSubList.appendChild(makeSubli);
+                makeSubList.appendChild(makesubli);
                 var optSubText = obj[n][0]+""+obj[n][1];
-                makeSubli.innerHTML = optSubText;
+                makesubli.innerHTML = optSubText;
             }
         }
     }
@@ -134,17 +141,14 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     //Variable defaults
-    var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
-        sexValue,;
-        favoriteValue = "No"
-    ;
+  
     pickTeam();
     
     
     
     //Set Link & Submit Events
 
-    var save = $('submit');
+    
     save.addEventListener("click", storeData);
     
 });
