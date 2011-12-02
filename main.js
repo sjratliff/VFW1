@@ -4,7 +4,7 @@
 // Full Sail University
 
 //Wait until the DOM is ready.
-window.addEventListener("DOMcontentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function(){
     
     //getElementById Function
     function $(x){
@@ -14,7 +14,7 @@ window.addEventListener("DOMcontentLoaded", function(){
     
     //create select field and populate with options
     function pickTeam(){
-        var formTag = document.getElementByTagName("form");//formTag Is Array of all the tags.
+        var formTag = document.getElementByTagName("form"),//formTag Is Array of all the tags.
             selectLi = $('select'),
             makeSelect = document.createElement('select');
             makeSelect.setAttribute("id", "groups");
@@ -94,6 +94,9 @@ window.addEventListener("DOMcontentLoaded", function(){
     
     function getData(){
         toggleControls("on");
+        if(localStorage.length == 0){
+            alert("There is no data in Local Storage.");
+        }
         //Write data from local storage to browser.
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
@@ -119,6 +122,17 @@ window.addEventListener("DOMcontentLoaded", function(){
         }
     }
     
+    function clearLocal(){
+        if(localStorage.length === 0 ){
+            alert("There is no data to clear.")
+        }else{
+            localStorage.clear();
+            alert("All Info Has Been Cleared");
+            window.location.reload();
+            return false;
+        }
+    }
+    
     //Variable defaults
     var contactGroups = ["--Choose A Group--", "Friends", "Work"];
         sexValue,
@@ -129,10 +143,7 @@ window.addEventListener("DOMcontentLoaded", function(){
     
     
     //Set Link & Submit Events
-   /* var displayLink = $('displayLink');
-    displayLink.addEventListener("click", getData);
-    var clearLink = $('clear');
-    clerLink.addEventListener("click", clearLocal);*/
+
     var save = $('submit');
     save.addEventListener("click", storeData);
     
