@@ -18,9 +18,9 @@ window.addEventListener("DOMContentLoaded", function(){
             selectLi = $('select'),
             makeSelect = document.createElement('select');
             makeSelect.setAttribute("id", "groups");
-        for(var i=0,j=contactGroups.length; i<j; i++){
+        for(var i=0,j=Groups.length; i<j; i++){
             var makeOption = document.createElement('option');
-            var optText = contactGroups[i];
+            var optText = Groups[i];
             makeOption.setAttribute("value", optText);
             makeOption.innerHTML = optText;
             makeSelect.appendChild(makeOption);
@@ -32,9 +32,9 @@ window.addEventListener("DOMContentLoaded", function(){
     //find value of selcted radio button.
     function getSelectedRadio(){
         var radio = document.forms[0].sex;
-        for(var i=0; i<radios.length; i++){
-            if(radios[i].checked){
-            sexValue = radios[i].value;
+        for(var i=0; i<radio.length; i++){
+            if(radio[i].checked){
+            sexValue = radio[i].value;
             }
         }
     }
@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", function(){
         if($('fav').checked){
             favoriteValue = $('fav').value;
         }else{
-            favoriteValue = "No"
+            favoriteValue = "No";
         }
     }
         
@@ -94,7 +94,7 @@ window.addEventListener("DOMContentLoaded", function(){
     
     function getData(){
         toggleControls("on");
-        if(localStorage.length == 0){
+        if(localStorage.length === 0){
             alert("There is no data in Local Storage.");
         }
         //Write data from local storage to browser.
@@ -124,7 +124,7 @@ window.addEventListener("DOMContentLoaded", function(){
     
     function clearLocal(){
         if(localStorage.length === 0 ){
-            alert("There is no data to clear.")
+            alert("There is no data to clear.");
         }else{
             localStorage.clear();
             alert("All Info Has Been Cleared");
@@ -135,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function(){
     
     //Variable defaults
     var contactGroups = ["--Choose A Group--", "Friends", "Work"];
-        sexValue,
+        sexValue,;
         favoriteValue = "No"
     ;
     pickTeam();
