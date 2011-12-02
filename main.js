@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     //Variable defaults
-    var contactGroups = ["--Choose A Group--", "Friends", "Work"];
+    var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
         sexValue,;
         favoriteValue = "No"
     ;
