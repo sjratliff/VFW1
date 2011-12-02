@@ -17,10 +17,13 @@ window.addEventListener("DOMContentLoaded", function(){
         favoriteValue = "No"
     ;
     var save = $('submit');
-    
+    var clearLink = $("clear");
+	var displayLink = $("displayLink");
+	
+	
     //create select field and populate with options
     function pickTeam(){
-        var formTag = document.getElementByTagName("form"),//formTag Is Array of all the tags.
+        var formTag = document.getElementsByTagName("form"),//formTag Is Array of all the tags.
             selectLi = $('select'),
             makeSelect = document.createElement('select');
             makeSelect.setAttribute("id", "groups");
@@ -49,13 +52,13 @@ window.addEventListener("DOMContentLoaded", function(){
     function toggleControls(n){
         switch(n){
             case "on":
-               $('contactForm').style.display = "none";
+               $('startPage').style.display = "none";
                $('clear').style.display = "inline";
                $('displayLink').style.display = "none";
                $('addNew').style.display = "inline";
                 break;
             case "off":
-               $('contactForm').style.display = "block";
+               $('startPage').style.display = "block";
                $('clear').style.display = "inline";
                $('displayLink').style.display = "inline";
                $('addNew').style.display = "none";
@@ -76,59 +79,61 @@ window.addEventListener("DOMContentLoaded", function(){
         getSelectedRadio();
         var item            ={};
             item.group      =["Group:", $('groups').value];
-            alert("1");
             item.tname      =["Team Name:", $('tname').value];
-             alert("2");
             item.sex        =["Sex:", sexValue];
-             alert("6");
             item.date       =["startdate", $('startdate').value];
-             alert("8");
             item.pword      =["Password:", $('pword').value];
-             alert("3");
             item.cpword     =["Confirm Password:", $('cpword').value];
-             alert("4");
             item.email       =["Email:", $('email').value];
-             alert("5");
             item.rating     =["rating", $('rating').value];
-             alert("7");
             item.comments   =["comments" , $('comments').value];
-             alert("9");
         //save data into local storage: Use Stringify to convery our object to a string.
         localStorage.setItem(id, JSON.stringify(item));
         alert("Information Saved!");
         
      }
+     
+     function getData(){
+		toggleControls("on");
+		if(localStorage.length === 0){
+		alert("There is no data in Local Storage.");
+		}
+	//Write Data from Local Storage to the browser.
+		
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
+		for(var i=0, len=localStorage.length; i<len; i++){
+			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			//convert the string from local storage value back to an object by using JSON.parse().
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeli.appendChild(makeSubList);
+			//week4
+			for(var n in obj){
+			var makeSubLi = document.createElement('li');
+				makeSubList.appendChild(makeSubLi);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubLi.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
+			}
+		makeItemLinks(localStorage.key(i), linksLi); //Create Edit and Delete links for each item in local storage
+		
+		}
+	}
+	
     
-    function getData(){
-        toggleControls("on");
-        if(localStorage.length === 0){
-            alert("There is no data in Local Storage.");
-        }
-        //Write data from local storage to browser.
-        var makeDiv = document.createElement('div');
-        makeDiv.setAttribute("id", "items");
-        var makeList = document.createElement('ul');
-        makeDiv.appendChild(makeList);
-        document.body.appendChild(makeDiv);
-        $('items').style.display = "block";
-        for(var i=0, len=localStorage.length; i<len;i++){
-            var makeli = document.createElement('li');
-            makeList.appendChild(makeli);
-            var key = localStorage.key(i);
-            var value = localStorage.getItem(key);
-            //Convert String from local storage value back to an object by using JSON.parsel()
-            var obj = JSON.parse(value);
-            var makeSubList = document.createElement('ul');
-            makeli.appendChild(makeSubList);
-            for(var n in obj){
-                var makesubli = document.createElement('li');
-                makeSubList.appendChild(makesubli);
-                var optSubText = obj[n][0]+""+obj[n][1];
-                makesubli.innerHTML = optSubText;
-            }
-        }
-    }
     
+    
+    
+       
     function clearLocal(){
         if(localStorage.length === 0 ){
             alert("There is no data to clear.");
@@ -150,5 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
     
     save.addEventListener("click", storeData);
+    clearLink.addEventListener("click", clearLocal);
+	displayLink.addEventListener("click", getData);
     
 });
