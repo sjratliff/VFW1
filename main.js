@@ -27,6 +27,8 @@ window.addEventListener("DOMcontentLoaded", function(){
         }
         selectLi.appendChild(makeSelect);
     }
+    
+    
     //find value of selcted radio button.
     function getSelectedRadio(){
         var radio = document.forms[0].sex;
@@ -44,9 +46,32 @@ window.addEventListener("DOMcontentLoaded", function(){
             favoriteValue = "No"
         }
     }
+        
+        function toggleControls(n){
+            switch(n){
+                case "on":
+                   $('contactForm').style.display = "none";
+                   $('clear').style.display = "inline";
+                   $('displayLink').style.display = "none";
+                   $('addNew').style.display = "inline";
+                    break;
+                case "off":
+                   $('contactForm').style.display = "block";
+                   $('clear').style.display = "inline";
+                   $('displayLink').style.display = "inline";
+                   $('addNew').style.display = "none";
+                   $('items').style.display = "none";
+                   
+                   
+                    break;
+                default:
+                    return false;
+            }
+            
+        }
     
-    function storeData(){
-        var id              =Math.floor(Math.random()*100000001);
+        function storeData(){
+        var id              = Math.floor(Math.random()*100000001);
         //gather up all form field valus and store in object.
         //Object properties contain array with the form label and input value.
         getSelectedRadio();
@@ -62,9 +87,36 @@ window.addEventListener("DOMcontentLoaded", function(){
             item.date       =["startdate", $('startdate').value];
             item.comments   =["comments" , $('comments').value];
         //save data into local storage: Use Stringify to convery our object to a string.
-        localStorage.setItem(id, JSON.stringify(iten));
-        alert("Information Saved !");
+        localStorage.setItem(id, JSON.stringify(item));
+        alert("Information Saved!");
         
+     }
+    
+    function getData(){
+        toggleControls("on");
+        //Write data from local storage to browser.
+        var makeDiv = document.createElement('div');
+        makeDiv.setAttribute("id", "items");
+        var makeList = document.createElement('ul');
+        makeDiv.appendChild(makelist);
+        document.body.appendChild(makeDiv);
+        $('items').style.display = "block";
+        for(var i=0, len=localStorage.length; i<len;i++){
+            var makei = document.createElement('li');
+            makeList.appendChild(makeli);
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            //Convert String from local storage value back to an object by using JSON.parsel()
+            var obj = JSON.parse(value);
+            var makeSubList = document.createElement('ul');
+            makeli.appendChild(makeSubList);
+            for(var n in obj){
+                var makesubli = document.createElement('li');
+                makeSubList.appendChild(makeSubli);
+                var optSubText = obj[n][0]+""+obj[n][1];
+                makeSubli.innerHTML = optSubText;
+            }
+        }
     }
     
     //Variable defaults
@@ -80,8 +132,8 @@ window.addEventListener("DOMcontentLoaded", function(){
    /* var displayLink = $('displayLink');
     displayLink.addEventListener("click", getData);
     var clearLink = $('clear');
-    clerLink.addEventListener("click", clearLocal);
+    clerLink.addEventListener("click", clearLocal);*/
     var save = $('submit');
-    save.addEventListener("click", storeData);*/
+    save.addEventListener("click", storeData);
     
 });
