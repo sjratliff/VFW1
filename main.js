@@ -123,10 +123,10 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 		 }
-		 makeItemLinks(localStorage.key(i), linkLi); //Create our edit and delete buttons/link for each item in local storage.
+		 makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/link for each item in local storage.
 	}
 }
-	//Make Item lInks
+	//Make Item Links
 	//Create the edit and delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi){
 	//add edit single item link
