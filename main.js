@@ -98,8 +98,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		if(localStorage.length === 0){
 		alert("There is no data in Local Storage.");
 		}
-	//Write Data from Local Storage to the browser.
 		
+		//Write Data from Local Storage to the browser.
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
@@ -116,7 +116,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
-			//week4
 			for(var n in obj){
 				var makeSubLi = document.createElement('li');
 				makeSubList.appendChild(makeSubLi);
@@ -124,7 +123,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 		 }
-		 makeItemLinks(localStorage.key(i), linkLi); //Create ouredit and delete buttons/link for each item in local storage.
+		 makeItemLinks(localStorage.key(i), linkLi); //Create our edit and delete buttons/link for each item in local storage.
 	}
 }
 	//Make Item lInks
@@ -134,18 +133,25 @@ window.addEventListener("DOMContentLoaded", function(){
 	var editLink = document.createElement('a');
 	editLink.href = '#';
 	editLink.key = key;
-	var editText = "Edit Team Info";
+	var editText = "Edit Info";
 	//editLink.addEventListener("click", editItem);
 	editLink.innerHTML = editText;
 	linksLi.appendChild(editLink);
 	
+	//add line break
+	var breakTag = document.createElement('br');
+	linksLi.appendChild(breakTag);
+	
+	
+	
+	//add delete single item link
 	var deleteLink = document.createElement('a');
 	deleteLink.href = "#";
 	deleteLink.key = key;
-	var deleteText = "Delete Team Info";
+	var deleteText = "Delete Info";
 	//deleteLink.addEventListener("click", deleteItem);
 	deleteLink.innerHTML = deleteText;
-	links.LI.appendChild(deleteLink);
+	linksLi.appendChild(deleteLink);
 	
 	}
 	
