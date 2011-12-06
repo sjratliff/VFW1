@@ -81,12 +81,12 @@ window.addEventListener("DOMContentLoaded", function(){
             item.group      =["Group:", $('groups').value];
             item.tname      =["Team Name:", $('tname').value];
             item.sex        =["Sex:", sexValue];
-            item.date       =["startdate", $('startdate').value];
+            item.date       =["Startdate", $('startdate').value];
             item.pword      =["Password:", $('pword').value];
             item.cpword     =["Confirm Password:", $('cpword').value];
             item.email       =["Email:", $('email').value];
-            item.rating     =["rating", $('rating').value];
-            item.comments   =["comments" , $('comments').value];
+            item.rating     =["Rating", $('rating').value];
+            item.comments   =["Comments" , $('comments').value];
         //save data into local storage: Use Stringify to convery our object to a string.
         localStorage.setItem(id, JSON.stringify(item));
         alert("Information Saved!");
@@ -160,6 +160,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
 		
+		//Show the form
 		toggleControls("off");
 		
 		//populate the form fields with the current localStorage values
@@ -167,9 +168,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('tname')    .value = item.tname[1];
 		var radios = document.forms[0].sex;
 		for(var i=0; i<radios.length;i++){
-			if(radios[i].value == "Male" && obj.sex[1] == "Male"){
-				radios[i].setAttribute(("checked", "checked");
-		   }else if (radios[i].value == "Female" && obj.sex[1] == "Female"){
+			if(radios[i].value == "Male" && item.sex[1] == "Male"){
+				radios[i].setAttribute("checked", "checked");
+		   }else if (radios[i].value == "Female" && item.sex[1] == "Female"){
 		   	radios[i].setAttribute("checked" , "checked");
 		   	}
 		   }
@@ -179,8 +180,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('email')    .value = item.email[1];
 		$('rating')   .value = item.rating[1];
 		$('comments') .value = item.comments[1];
-		
-		
 		
 	}
 	
