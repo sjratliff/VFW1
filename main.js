@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	editLink.href = '#';
 	editLink.key = key;
 	var editText = "Edit Info";
-	//editLink.addEventListener("click", editItem);
+	editLink.addEventListener("click", editItem);
 	editLink.innerHTML = editText;
 	linksLi.appendChild(editLink);
 	
@@ -155,7 +155,34 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	}
 	
-
+	function editItem(){
+	//Grab the data from our item from local Storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		toggleControls("off");
+		
+		//populate the form fields with the current localStorage values
+		$('groups')   .value = item.group[1];
+		$('tname')    .value = item.tname[1];
+		var radios = document.forms[0].sex;
+		for(var i=0; i<radios.length;i++){
+			if(radios[i].value == "Male" && obj.sex[1] == "Male"){
+				radios[i].setAttribute(("checked", "checked");
+		   }else if (radios[i].value == "Female" && obj.sex[1] == "Female"){
+		   	radios[i].setAttribute("checked" , "checked");
+		   	}
+		   }
+		$('startdate').value = item.date[1];
+		$('pword')    .value = item.pword[1];
+		$('cpword')   .value = item.cpword[1];
+		$('email')    .value = item.email[1];
+		$('rating')   .value = item.rating[1];
+		$('comments') .value = item.comments[1];
+		
+		
+		
+	}
 	
     
     function clearLocal(){
