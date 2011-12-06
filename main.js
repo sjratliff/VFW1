@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var radio = document.forms[0].sex;
         for(var i=0; i<radio.length; i++){
             if(radio[i].checked){
-            sexValue = radio[i].value;
+            	sexValue = radio[i].value;
             }
         }
     }
@@ -96,7 +96,7 @@ window.addEventListener("DOMContentLoaded", function(){
      function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-		alert("There is no data in Local Storage.");
+			alert("There is no data in Local Storage.");
 		}
 		
 		//Write Data from Local Storage to the browser.
