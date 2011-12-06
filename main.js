@@ -129,13 +129,13 @@ window.addEventListener("DOMContentLoaded", function(){
 }
 	//Make Item lInks
 	//Create the edit and delete links for each stored item when displayed
-	function makeItemLinks(){}
+	function makeItemLinks(key, linksLi){
 	//add edit single item link
-	var editLink = document.createElement('a);
-	var editLink.href = '#';
+	var editLink = document.createElement('a');
+	editLink.href = '#';
 	editLink.key = key;
 	var editText = "Edit Team Info";
-	editLink.addEventListener("click", editItem);
+	//editLink.addEventListener("click", editItem);
 	editLink.innerHTML = editText;
 	linksLi.appendChild(editLink);
 	
@@ -143,9 +143,11 @@ window.addEventListener("DOMContentLoaded", function(){
 	deleteLink.href = "#";
 	deleteLink.key = key;
 	var deleteText = "Delete Team Info";
-	deleteLink.addEventListener("click", deleteItem);
+	//deleteLink.addEventListener("click", deleteItem);
 	deleteLink.innerHTML = deleteText;
 	links.LI.appendChild(deleteLink);
+	
+	}
 	
 
 	
