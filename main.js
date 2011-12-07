@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function(){
     var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
     var sexValue,
         favoriteValue = "No"
+        errMsg = $('errors');
     ;
     var save = $('submit');
     var clearLink = $("clear");
@@ -207,9 +208,70 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
-    function validate(){
-    
-    }
+    function validate(e){
+    	//define element we want to check
+    	var getGroup = $('groups');
+    	var gettname = $('tname');
+    	var getpword = $('pword');
+    	var getcpword = $('cpword');
+    	var getEmail = $('email');
+    	var getComments = $('comments');
+    	
+    	
+    	//Get Error Messages
+    	Var messageAry = [];
+    	//group validation
+    	if (getGroup.value=="--Choose A Team--"){
+    		var groupError = "Please choose a group.";
+    		getGroup.style.border = "1px solid red";
+    		messageAry.push(groupError);
+    	}
+    	
+    	//Team Name Validation
+    	if (gettname.value==""){
+    		var tnameError = "Please Enter Team Name.";
+    		getTname.style.border = "1px solid red";
+    		messageAry.push(tnameError);
+    		
+    	}
+    	
+    	//Password Validation
+    	if (getPword.value==""){
+    		var pwordError = "Please Enter Password.";
+    		getPword.style.border = "1px solid red";
+    		messageAry.push(pwordError);
+    	}
+    	
+    	//Password Confirm Validation
+    	if (getCpword.value==""){
+    		var cpwordError = "Please Re-Enter Password.";
+    		getCpword.style.border = "1px solid red";
+    		messageAry.push(cpwordError);
+    	}
+    	
+    	//Email Validation
+    	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    	if(!(re.exec(getEmail.value))){
+    	var emailError = "Please Enter Valid Email Address.";
+    	getEmail.style.border = "1px solid red";
+    	messageAry.push(emailError);
+    	
+    	}
+    	//if there were error, display on screen
+    	if(messageAry.length >= 1){
+    		for(var i=0, j=messageAry.length; i < j; i++){
+    			var txt = document.createElement('li');
+    			txt.innerHTML = messageAry[i];
+    			errMsg.appendChild(txt);
+    			
+    		}
+    			
+    	}
+    	e.preventDefault();
+    	return false;
+    	
+    }		
+    		
     //Variable defaults
   
     pickTeam();
@@ -224,6 +286,6 @@ window.addEventListener("DOMContentLoaded", function(){
     var clearLink = $('clear');
     clearLink.addEventListener("click", clearLocal);
     var save = $('submit');
-	save.addEventListener("click", storeData);
+	save.addEventListener("click", validate);
     
 });
