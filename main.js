@@ -217,6 +217,13 @@ window.addEventListener("DOMContentLoaded", function(){
     	var getEmail = $('email');
     	var getComments = $('comments');
     	
+    	//Reset Error Messages
+    	errMsg.innerHTML = "";
+   		getGroup.style.border = "1px solid black";
+    	getTname.style.border = "1px solid black";
+    	getPword.style.border = "1px solid black";
+   		getCpword.style.border = "1px solid black";
+    	getEmail.style.border = "1px solid black";
     	
     	//Get Error Messages
     	var messageAry = [];
@@ -270,6 +277,7 @@ window.addEventListener("DOMContentLoaded", function(){
     	e.preventDefault();
     	return false;
     	
+    	
     }		
     		
     //Variable defaults
@@ -281,11 +289,7 @@ window.addEventListener("DOMContentLoaded", function(){
     //Set Link & Submit Events
 
     
-    var displayLink = $('displayLink');
-	displayLink.addEventListener("click", getData);
-    var clearLink = $('clear');
+	save.addEventListener("click", storeData);
     clearLink.addEventListener("click", clearLocal);
-    var save = $('submit');
-	save.addEventListener("click", validate);
-    
+	displayLink.addEventListener("click", getData);    
 });
