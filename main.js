@@ -219,8 +219,11 @@ window.addEventListener("DOMContentLoaded", function(){
     //Set Link & Submit Events
 
     
-    save.addEventListener("click", storeData);
-    clearLink.addEventListener("click", clearLocal);
+    var displayLink = $('displayLink');
 	displayLink.addEventListener("click", getData);
+    var clearLink = $('clear');
+    clearLink.addEventListener("click", clearLocal);
+    var save = $('submit');
+	save.addEventListener("click", storeData);
     
 });
