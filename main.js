@@ -219,7 +219,7 @@ window.addEventListener("DOMContentLoaded", function(){
     	
     	
     	//Get Error Messages
-    	Var messageAry = [];
+    	var messageAry = [];
     	//group validation
     	if (getGroup.value=="--Choose A Team--"){
     		var groupError = "Please choose a group.";
@@ -262,7 +262,7 @@ window.addEventListener("DOMContentLoaded", function(){
     		for(var i=0, j=messageAry.length; i < j; i++){
     			var txt = document.createElement('li');
     			txt.innerHTML = messageAry[i];
-    			errMsg.appendChild(txt);
+    			errMsg.appendChild(txt)
     			
     		}
     			
@@ -273,7 +273,7 @@ window.addEventListener("DOMContentLoaded", function(){
     }		
     		
     //Variable defaults
-  
+  ;
     pickTeam();
     
     
