@@ -271,14 +271,18 @@ window.addEventListener("DOMContentLoaded", function(){
     			txt.innerHTML = messageAry[i];
     			errMsg.appendChild(txt)
     			
-    		}
+    			}
     			
-    	}
-    	e.preventDefault();
-    	return false;
+    		}
+    		e.preventDefault();
+    		return false;
+   		 }else{
+    		// If all is ok Save Data
+    		storeData();
+   	 }
     	
     	
-    }		
+}		
     		
     //Variable defaults
   ;
