@@ -181,6 +181,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('rating')   .value = item.rating[1];
 		$('comments') .value = item.comments[1];
 		
+		
+		//Remove the initial listener from the  input "save contact" button
+		save.removeEventListener("click", storeData);
+		//Change Submit Button Value to Edit Button
+		$('submit').value = "Edit Contact";
+		var editSubmit = $('submit');
+		//Save the key value established in this function as a property of the editSubmit event
+		//soo we can use that value when we save the data we edited.
+		editSubmit.addEventListener("click" , validate);
+		editSubmit.key = this.key;
+		
+		
 	}
 	
     
@@ -195,6 +207,9 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
+    function validate(){
+    
+    }
     //Variable defaults
   
     pickTeam();
