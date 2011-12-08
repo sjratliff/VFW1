@@ -73,9 +73,17 @@ window.addEventListener("DOMContentLoaded", function(){
             
         }
     
-        function storeData(){
-        var id              = Math.floor(Math.random()*100000001);
-        //gather up all form field valus and store in object.
+        function storeData(key){
+        //if there is no key, this means this is a brand new item and we need a new key.
+        if(!key){
+        	var id              = Math.floor(Math.random()*100000001);
+         }else{
+         	//set the id to the existing key we're editing so that it will save over the data.
+         	//The key is the same key that's been passed along from the editSubmit event handler
+         	//to the validate function,and then passed here,into the storeData function.
+         		id = key;
+         }
+        //gather up all form field values and store in object.
         //Object properties contain array with the form label and input value.
         getSelectedRadio();
         var item            ={};
@@ -150,7 +158,7 @@ window.addEventListener("DOMContentLoaded", function(){
     deleteLink.href = "#";
     deleteLink.key = key;
     var deleteText = "Delete Info";
-    //deleteLink.addEventListener("click", deleteItem);
+    deleteLink.addEventListener("click", deleteItem);
     deleteLink.innerHTML = deleteText;
     linksLi.appendChild(deleteLink);
     
@@ -196,6 +204,15 @@ window.addEventListener("DOMContentLoaded", function(){
         
     }
     
+    function deleteItem(){
+    	var ask = confirm("Are you Sure you Want To delete?");
+    		if(ask){
+    		 localStorage.removeItem(this.key);
+    		 window.location.reload();
+    		}else{
+    			alert("Information Was NOT deleted.")
+    		}
+    }
     
     function clearLocal(){
         if(localStorage.length === 0 ){
@@ -274,6 +291,8 @@ window.addEventListener("DOMContentLoaded", function(){
             e.preventDefault();
             return false;
         }else{
+        	//if all K,save our data! Send key valuae (which came from the editData function).
+        	//Remember this key value was passed through the editSubmit event listner as a property.
             storeData(this.key);
         }
         
