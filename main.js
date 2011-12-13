@@ -106,7 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
         toggleControls("on");
         if(localStorage.length === 0){
         autoFillData();
-            alert("There is no data in Local Storage so Default Data was Added.");
+            alert("There is no data in Local Storage, so Default Data was Added.");
         }
         
         //Write Data from Local Storage to the browser.
@@ -155,7 +155,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 		//store the JSON OBJECT into local storage
 		var id              = Math.floor(Math.random()*100000001);
-		localStorage.setItem(id, JSON.stringify(json[0]));
+		localStorage.setItem(id, JSON.stringify(json.contact1));
 		
 	}
     //Make Item Links
