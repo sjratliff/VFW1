@@ -140,23 +140,36 @@ window.addEventListener("DOMContentLoaded", function(){
 	//JSON Object Whick will auto populate local storage.
 	function autoFillData(){
 		var json = {
-			"contact1":{
-				"Group":["Group:", "Pick A Team"],
-				"Team Name:"["tname:","Bears"],
-				"Sex":["sex:","Male"],
-				"Startdate":["startdate:","2011-12-13"],
-				"Password":["pword:","123456"],
-				"Confirm Password":["cpword:","123456"],
-				"Email":["email:","sjratliff@me.com"],
-				"Rating":["rating:","8"],
-				"Comments":["comments:","Autofill for testing"]
+			"contact1":	{
+				"group": 	["Group:", "Pick A Team"],
+				"tname": 	["Team Name:","Bears"],
+				"sex":   	["Sex:","Male"],
+				"startdate":["Startdate:","2011-12-13"],
+				"pword":	["Password:","123456"],
+				"cpword":	["Confirm Password:","123456"],
+				"email":	["Email:","sjratliff@me.com"],
+				"rating":	["Rating:","8"],
+				"comments":	["Comments:","Autofill for testing"]
 	
-				}
+			},
+			"contact2":	{
+				"group": 	["Group:", "Pick A Team"],
+				"tname": 	["Team Name:","Packers"],
+				"sex":   	["Sex:","Femaile"],
+				"startdate":["Startdate:","2011-12-11"],
+				"pword":	["Password:","239900"],
+				"cpword":	["Confirm Password:","239900"],
+				"email":	["Email:","section22@yahoo.com"],
+				"rating":	["Rating:","4"],
+				"comments":	["Comments:","Autofill for testing"]
+			}
+				
 		};
 		//store the JSON OBJECT into local storage
-		var id              = Math.floor(Math.random()*100000001);
-		localStorage.setItem(id, JSON.stringify(json.contact1));
-		
+		for(var n in json){
+			var id              = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
 	}
     //Make Item Links
     //Create the edit and delete links for each stored item when displayed
