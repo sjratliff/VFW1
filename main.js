@@ -1,4 +1,4 @@
-// Activity 2
+// Activity 4
 // Visual Frameworks (VFW)
 // Mobile Development
 // Full Sail University
@@ -105,7 +105,8 @@ window.addEventListener("DOMContentLoaded", function(){
      function getData(){
         toggleControls("on");
         if(localStorage.length === 0){
-            alert("There is no data in Local Storage.");
+        autoFillData();
+            alert("There is no data in Local Storage so Default Data was Added.");
         }
         
         //Write Data from Local Storage to the browser.
@@ -133,8 +134,30 @@ window.addEventListener("DOMContentLoaded", function(){
                 makeSubList.appendChild(linksLi);
          }
          makeItemLinks(localStorage.key(i), linksLi); //Create our edit and delete buttons/link for each item in local storage.
-    }
-}
+   	 }
+	}
+	
+	//JSON Object Whick will auto populate local storage.
+	function autoFillData(){
+		var json = {
+			"contact1":{
+				"Group":["Group:", "Pick A Team"],
+				"Team Name:"["tname:","Bears"],
+				"Sex":["sex:","Male"],
+				"Startdate":["startdate:","2011-12-13"],
+				"Password":["pword:","123456"],
+				"Confirm Password":["cpword:","123456"],
+				"Email":["email:","sjratliff@me.com"],
+				"Rating":["rating:","8"],
+				"Comments":["comments:","Autofill for testing"]
+	
+				}
+		};
+		//store the JSON OBJECT into local storage
+		var id              = Math.floor(Math.random()*100000001);
+		localStorage.setItem(id, JSON.stringify(json[0]));
+		
+	}
     //Make Item Links
     //Create the edit and delete links for each stored item when displayed
     function makeItemLinks(key, linksLi){
