@@ -11,11 +11,6 @@ window.addEventListener("DOMContentLoaded", function(){
         var theElement = document.getElementById(x);
         return theElement;
     }
-    
-    var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
-    var sexValue,
-        favoriteValue = "No",
-        errMsg = $('errors');
    
     var save = $('submit');
     var clearLink = $("clear");
@@ -126,7 +121,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var obj = JSON.parse(value);
             var makeSubList = document.createElement('ul');
             makeli.appendChild(makeSubList);
-            getImage(obj.group[2], makeSubList);
+            getImage(obj.group[1], makeSubList);
             for(var n in obj){
                 var makeSubLi = document.createElement('li');
                 makeSubList.appendChild(makeSubLi);
@@ -142,7 +137,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
 		var newImg = document.createElement('img');
-		var setSrc = newImg.setAttribute("src","images/"+ catName +".png");
+		var setSrc = newImg.setAttribute("src","images/"+ catName +".jpg");
 		imageLi.appendChild(newImg);
 		 
 	
@@ -152,9 +147,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	function autoFillData(){
 		var json = {
 			"contact1":	{
-				"group": 	["Group:", "Pick A Team"],
-				"tname": 	["Team Name:","Bears"],
-				"sex":   	["Sex:","Male"],
+				"group": 	["Group:", "Bears"],
+				"tname": 	["Team Name:","My Vick In A Box"],
+				"sex":   	["Sex:","male"],
 				"startdate":["Startdate:","2011-12-13"],
 				"pword":	["Password:","123456"],
 				"cpword":	["Confirm Password:","123456"],
@@ -164,9 +159,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 			},
 			"contact2":	{
-				"group": 	["Group:", "Pick A Team"],
-				"tname": 	["Team Name:","Packers"],
-				"sex":   	["Sex:","Femaile"],
+				"group": 	["Group:", "Packers"],
+				"tname": 	["Team Name:","Somewhere over Dwayne Bowe"],
+				"sex":   	["Sex:","female"],
 				"startdate":["Startdate:","2011-12-11"],
 				"pword":	["Password:","239900"],
 				"cpword":	["Confirm Password:","239900"],
@@ -224,9 +219,9 @@ window.addEventListener("DOMContentLoaded", function(){
         $('tname')    .value = item.tname[1];
         var radios = document.forms[0].sex;
         for(var i=0; i<radios.length;i++){
-            if(radios[i].value == "Male" && item.sex[1] == "Male"){
+            if(radios[i].value == "male" && item.sex[1] == "male"){
                 radios[i].setAttribute("checked", "checked");
-           }else if (radios[i].value == "Female" && item.sex[1] == "Female"){
+           }else if (radios[i].value == "female" && item.sex[1] == "female"){
                radios[i].setAttribute("checked" , "checked");
                }
            }
@@ -330,8 +325,8 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         //if there were error, display on screen
         if(messageAry.length >= 1){
-            for(var i=0, j=messageAry.length; i < j; i++) {
-                var txt = document.createElement("li");
+            for(var i=0, j=messageAry.length; i < j; i++){
+                var txt = document.createElement('li');
                 txt.innerHTML = messageAry[i];
                 errMsg.appendChild(txt);
             }
@@ -347,6 +342,11 @@ window.addEventListener("DOMContentLoaded", function(){
 }        
             
     //Variable defaults
+    var contactGroups = ["--Choose A Team--", "Bears", "Packers"];
+    var sexValue,
+        favoriteValue = "No",
+        errMsg = $('errors');
+    
   ;
     pickTeam();
     
