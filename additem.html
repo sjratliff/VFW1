@@ -17,23 +17,19 @@
     </head>
         <body>
             <header><h1 id="test">Fantasy Football Draft Assistant</h1></header>
-            <nav>
-                <a href="#" id="clear"> Clear Data</a>
-                <a href="#" id="displayLink">Display Data </a>
-                <a href="additem.html" id="addNew" style="display:none;">Add New Player</a>
+            <legend>Team Information</legend>
             </nav>
             <form action="#" method="post" id="startPage">
                 <fieldset id="startFieldset">
-                    <legend>Team Information and Sign In</legend>
                     <span> Fill Info Below </span>
                     <ul id="errors"></ul>
                     <ul id="questions">
-                        <li id="select"><label for="group">Pick Your Fav Team:</label></li>
+                        <li id="select"><label for="group">Pick Your Favorite Team :</label></li>
                         <li><label for="tname">Team Name: <label><input type="text" id="tname" /></li>
-                        <li><label for="sex">Sex: </label>
-                                <ul class="checkbox">
-                                    <li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male">Male</label></li>
-                                    <li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female">Female</label></li>
+                        <li><label for="sex">Sex: 	</label>
+                    <ul class="checkbox">
+                      <li><input type="radio" checked value="Male" id="male" name="sex" /><label for="male">Male</label></li>
+                      <li><input type="radio" checked value="Female" id="female" name="sex" /><label for="female">Female</label></li>
                                 </ul>
                         </li>
                         <li><label for="startdate">Today's Date: </label><input type="date" min="2011-11-01" max="2011-12-31" id="startdate" name='startdate'required aria-required="true" placeholder="2011-11-15">
@@ -45,6 +41,11 @@
                       <li><label for="comments"> comments: </label><textarea id="comments"></textarea></li></ul>
                 </fieldset>
                 <input type="submit" value="Save Contact" id="submit" /><br />
+                <nav>
+                <a href="#" id="clear"> Clear Data</a>
+                <a href="#" id="displayLink">Display Data </a>
+                <a href="additem.html" id="addNew" style="display:none;">Add New Player</a>
+
             </form>
             <script src="main.js" type="text/javascript"></script>
                 
